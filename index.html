@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halaman - Asagi</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/asagi185/autojoin/refs/heads/main/icon.png" type="image/png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+      body {
+      background: linear-gradient(135deg, #1f1f47, #111121);
+      color: white;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .hamburger div {
+      width: 24px;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100vh;
+      background: #1f1f47;
+      padding: 20px;
+      transition: left 0.3s ease;
+      z-index: 50;
+    }
+    .sidebar.open {
+      left: 0;
+    }
+    .sidebar nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+      padding: 12px 0;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .sidebar nav a:hover {
+      background: #333;
+    }
+
+    @keyframes fade-in-down {
+      0% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in-down {
+      animation: fade-in-down 0.3s ease-out;
+    }
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 0.9em;
+      color: #aaa;
+      }
+      </style>
+</head>
+<body class="text-white font-sans overflow-x-hidden">
+
+  <!-- Alert Container -->
+  <div id="alert-container" class="fixed top-20 right-4 space-y-4 z-[60]"></div>
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-[#1a1a1a] flex items-center justify-between px-4 h-16 z-50 shadow-md">
+    <!-- Hamburger -->
+    <div id="hamburger" class="hamburger z-50">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <!-- Title -->
+    <h1 class="absolute left-1/2 transform -translate-x-1/2 text-green-400 text-lg md:text-xl font-bold">
+      Asagi Official
+    </h1>
+
+    <!-- Notifikasi -->
+    <button id="notifBtn" class="text-white text-xl">
+      <i class="fas fa-bell"></i>
+    </button>
+  </header>
+
+  <!-- Spacer -->
+  <div class="h-16"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="mb-6 flex items-center">
+      <img src="https://img1.pixhost.to/images/6655/613942487_imgtmp.jpg" alt="Avatar" class="rounded-full w-10 h-10 mr-2 border-2 border-white">
+      <span class="font-bold">ASAGI OFFC</span>
+    </div>
+    <nav>
+<a href="/" class="border-l-4 border-green-500 pl-3 text-green-600 flex items-center gap-2 bg-[#2e2e2e]/90 rounded-md p-3">
+  <i class="fas fa-home"></i> Beranda
+</a>
+      <a href="/tentang"><i class="fas fa-circle-info"></i> Tentang</a>
+      <a href="/store"><i class="fas fa-cogs"></i> Store</a>
+      <a href="mailto:asagidevoloper@gmail.com"><i class="fas fa-envelope"></i> Kontak</a>
+      <a href="https://github.com/asagi185"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://wa.me/message/Y4NSUYZNK4K7E1"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://t.me/AsagiOfficial"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="https://youtube.com/@asagioffc?si=SKhUFWb7N99B6djJ"><i class="fab fa-youtube"></i> YouTube</a>
+    </nav>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="text-center py-16 px-4" data-aos="fade-down">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Layanan Unggulan Kami</h2>
+    <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+      Kami menyediakan berbagai fitur untuk menunjang kebutuhan digital Anda secara mudah, cepat, dan efisien.
+    </p>
+  </section>
+
+  <!-- Cards -->
+  <div class="grid md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto px-4 pb-20">
+    <div class="glass rounded-3xl p-6 shadow-2xl hover:scale-[1.03] hover:shadow-green-400/20 transition duration-500 ease-in-out flex flex-col justify-between"
+         data-aos="fade-up" data-aos-delay="100">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold mb-3">Rest API</h2>
+        <p class="text-gray-300 mb-6">API kami memberikan fleksibilitas penuh untuk membangun aplikasi custom sesuai kebutuhan bisnis Anda.</p>
+      </div>
+      <div class="flex justify-center mt-auto">
+        <a href="https://asagiofficial-api.idnet.my.id" target="_blank"
+           class="w-48 text-center bg-green-400 hover:bg-green-500 text-black font-bold px-6 py-2 rounded-xl transition">Lihat API</a>
+      </div>
+    </div>
+
+    <div class="glass rounded-3xl p-6 shadow-2xl hover:scale-[1.03] hover:shadow-green-400/20 transition duration-500 ease-in-out flex flex-col justify-between"
+         data-aos="fade-up" data-aos-delay="200">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold mb-3">YouTube Downloader</h2>
+        <p class="text-gray-300 mb-6">Download video YouTube online, cepat dan mudah tanpa install aplikasi.</p>
+      </div>
+      <div class="flex justify-center mt-auto">
+        <a href="https://youtubedown.asagioffc.idnet.my.id/" target="_blank"
+           class="w-48 text-center bg-green-400 hover:bg-green-500 text-black font-bold px-6 py-2 rounded-xl transition">YT Downloader</a>
+      </div>
+    </div>
+
+    <div class="glass rounded-3xl p-6 shadow-2xl hover:scale-[1.03] hover:shadow-green-400/20 transition duration-500 ease-in-out flex flex-col justify-between"
+         data-aos="fade-up" data-aos-delay="300">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold mb-3">TikTok Downloader</h2>
+        <p class="text-gray-300 mb-6">Download video TikTok online tanpa watermark dan tanpa aplikasi.</p>
+      </div>
+      <div class="flex justify-center mt-auto">
+        <a href="https://tiktokdownload-asagi.idnet.my.id/" target="_blank"
+           class="w-48 text-center bg-green-400 hover:bg-green-500 text-black font-bold px-6 py-2 rounded-xl transition">TikTok Downloader</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    &copy;  2025 Asagi Official. All rights reserved.
+  </footer>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+          AOS.init({ duration: 800, once: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.getElementById('sidebar');
+    const notifBtn = document.getElementById('notifBtn');
+
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+        sidebar.classList.remove('open');
+      }
+    });
+
+    notifBtn.addEventListener('click', () => {
+      showAlert("info", "Kini website mempunya UI Update Dari Asagi Official");
+    });
+
+    function showAlert(type = "info", message = "Ini notifikasi!") {
+      const colors = {
+        info: "bg-blue-100 text-blue-800 border-blue-300",
+        success: "bg-green-100 text-green-800 border-green-300",
+        danger: "bg-red-100 text-red-800 border-red-300",
+        warning: "bg-yellow-100 text-yellow-800 border-yellow-300",
+      };
+
+      const icons = {
+        info: "fa-circle-info",
+        success: "fa-circle-check",
+        danger: "fa-circle-xmark",
+        warning: "fa-triangle-exclamation",
+      };
+
+      const alertBox = document.createElement("div");
+      alertBox.className = `alert ${colors[type]} border px-4 py-3 rounded-md shadow flex items-start justify-between gap-3 animate-fade-in-down`;
+      alertBox.innerHTML = `
+        <div class="flex items-center gap-2">
+          <i class="fas ${icons[type]} text-xl"></i>
+          <span class="font-medium">${message}</span>
+        </div>
+        <button class="text-xl focus:outline-none" onclick="this.parentElement.remove()">&times;</button>
+      `;
+
+      document.getElementById("alert-container").appendChild(alertBox);
+      setTimeout(() => alertBox.remove(), 5000);
+    }
+  </script>
+</body>
+</html>
